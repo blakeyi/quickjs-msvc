@@ -1,0 +1,5 @@
+LIBRARY
+
+
+EXPORTS
+	js_init_module

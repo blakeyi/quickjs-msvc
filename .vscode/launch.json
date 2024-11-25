@@ -1,0 +1,45 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "quickjs",
+            "request": "launch",
+            "name": "Launch QuickJS",
+            "runtimeExecutable": "${workspaceFolder}/qjs-debug",
+            "windows": {
+                "runtimeExecutable": "${workspaceFolder}/qjs-debug.exe"
+            },
+            // "trace": true,
+            "program": "${workspaceFolder}/test.js"
+        },
+        {
+            "name": "(lldb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/qjs-debug",
+            "args": [
+                "test.js"
+            ],
+            "cwd": "${workspaceFolder}",
+            "externalConsole": false,
+            "environment": [
+                {
+                    "name": "QUICKJS_DEBUG_ADDRESS",
+                    "value": "127.0.0.1:5555"
+                }
+            ],
+            "MIMode": "lldb"
+        },
+        {
+            "type": "quickjs",
+            "request": "attach",
+            "name": "Attach QuickJS",
+            "localRoot": "${workspaceFolder}/",
+            "mode": "listen",
+            "port": 5555
+        }
+    ]
+}
